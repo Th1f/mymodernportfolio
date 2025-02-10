@@ -1,10 +1,32 @@
 :root {
   --primary-color: #4a90e2;     /* Bright blue */
-  --secondary-color: #7ed957;   /* Vibrant green */
+  /* --secondary-color: #7ed957; */
+  --secondary-color: #2e63a0;
   --accent-color: #ff6b6b;      /* Soft red */
   --text-color: #ffffff;        /* White */
   --background-color: #121212;  /* Deep dark background */
-  --nav-background: rgba(30, 30, 30, 0.8);
+  --nav-background: rgba(30, 30, 30, 0.5);
+  /* Brand Colors for Tech Icons */
+  --react-color: #61DAFB;
+  --nextjs-color: #000000;
+  --nodejs-color: #68A063;
+  --typescript-color: #3178C6;
+  --javascript-color: #F7DF1E;
+  --python-color: #3776AB;
+  --django-color: #092E20;
+  --flask-color: #000000;
+  --java-color: #007396;
+  --docker-color: #2496ED;
+  --aws-color: #FF9900;
+  --postgresql-color: #336791;
+  --mongodb-color: #47A248;
+  --openai-color: #412991;
+  --pytorch-color: #EE4C2C;
+  --datastructures-color: #4A90E2;
+  --git-color: #F05032;
+  --linux-color: #FCC624;
+  --html5-color: #E34F26;
+  --css3-color: #1572B6;
 }
 
 body {
@@ -70,7 +92,7 @@ body::after {
     rgba(74, 144, 226, 0.1) 100%
   );
   background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
+  animation: 2s ease infinite;
   padding: 0;
 }
 
@@ -99,7 +121,7 @@ body::after {
   margin-bottom: 1rem;
   text-align: center;
   width: 100%;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(45deg, var(--primary-color), #7ed957);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -142,13 +164,14 @@ body::after {
 
 .hero-cta .download-cv-btn {
   background-color: transparent;
-  border: 2px solid var(--accent-color);
-  color: var(--text-color);
+  border: 2px solid #ffffff;
+  color: #ffffff;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero-cta .download-cv-btn:hover {
-  background-color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
   transform: scale(1.05);
 }
 
@@ -201,7 +224,7 @@ body::after {
     rgba(126, 217, 87, 0.1) 100%
   );
   background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
+  animation: gradientShift 20s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -238,7 +261,7 @@ body::after {
     rgba(255, 107, 107, 0.1) 100%
   );
   background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
+  animation: gradientShift 25s ease infinite;
 }
 
 .technologies-section .tech-grid,
@@ -277,35 +300,104 @@ body::after {
 
 .tech-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: auto;
-  height: 60px;
-  background-color: rgba(255, 255, 255, 0.1);
+  min-width: 100px;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgba(74, 144, 226, 0.1);
   border-radius: 10px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  padding: 0 15px;
+  animation: 3s ease-in-out infinite alternate;
+  opacity: 0.8;
 }
 
-.tech-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0;
-  color: var(--accent-color, #4a90e2);
-}
-
-.tech-name {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-color, #ffffff);
+@keyframes techCardFadeInOut {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .tech-card:hover {
+  animation-play-state: paused;
   transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 
+    transform 0.3s ease, 
+    background-color 0.3s ease;
+}
+
+.tech-card:hover,
+.tech-card:not(:hover) {
+  animation-play-state: running;
+  transition: 
+    transform 0.3s ease, 
+    background-color 0.3s ease, 
+    opacity 0.3s ease;
+}
+
+.tech-icon {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+}
+
+.tech-name {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--text-color);
+  opacity: 0.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tech-card:hover .tech-icon {
+  transform: scale(1.1);
+}
+
+.tech-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-marquee {
+  display: flex;
+  width: 200%;
+  position: relative;
+}
+
+.tech-marquee-content {
+  display: flex;
+  width: 100%;
+  animation: marquee 20s linear infinite;
+  gap: 1rem;
+  padding: 1rem 0;
+  align-items: center;
+}
+
+.tech-marquee-container:hover .tech-marquee-content {
+  animation-duration: 5s;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* Projects Section */
@@ -380,6 +472,8 @@ body::after {
 .project-links a:hover {
   color: var(--secondary-color);
 }
+
+/* Removed project image CSS */
 
 /* Scroll Progress Container */
 .scroll-progress-container {
@@ -547,7 +641,7 @@ body, html {
   border: 1px solid rgba(74, 144, 226, 0.2); /* Subtle blue border */
   backdrop-filter: blur(10px);
   position: fixed;
-  top: 10px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%) translateY(-100%);
   width: auto;
@@ -556,6 +650,7 @@ body, html {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
+  border-radius: 10px;
   transition: opacity 0.3s ease, visibility 0.3s, transform 0.3s ease;
 }
 
@@ -571,10 +666,11 @@ body, html {
 }
 
 .nav-links a {
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  user-select: none;
   color: var(--text-color);
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-  position: relative;
   font-weight: 300;
   letter-spacing: 1px;
   padding: 0.3rem 0.5rem;
@@ -586,6 +682,10 @@ body, html {
   color: var(--primary-color);
   transform: scale(1.05);
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-links a:active {
+  transform: scale(0.95);
 }
 
 @media (max-width: 768px) {
@@ -603,4 +703,231 @@ body, html {
     padding: 0.2rem 0.4rem;
     font-size: 0.9rem;
   }
+}
+
+/* Section Gradient Animations */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-section {
+  background: linear-gradient(135deg, 
+    rgba(74, 144, 226, 0.1) 0%, 
+    rgba(126, 217, 87, 0.1) 50%, 
+    rgba(74, 144, 226, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.technologies-section {
+  background: linear-gradient(135deg, 
+    rgba(126, 217, 87, 0.1) 0%, 
+    rgba(255, 107, 107, 0.1) 50%, 
+    rgba(126, 217, 87, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 20s ease infinite;
+}
+
+.projects-section {
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 107, 0.1) 0%, 
+    rgba(74, 144, 226, 0.1) 50%, 
+    rgba(255, 107, 107, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 25s ease infinite;
+}
+
+.contact-section {
+  background: linear-gradient(135deg, 
+    rgba(74, 144, 226, 0.1) 0%, 
+    rgba(255, 107, 107, 0.1) 50%, 
+    rgba(126, 217, 87, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 30s ease infinite;
+}
+
+/* Responsive Interaction for Technologies and Projects Sections */
+@media screen and (max-width: 768px) {
+  .hero-content p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  .technology-item,
+  .project-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .technology-icon,
+  .project-image {
+    max-width: 60px;
+    max-height: 60px;
+    margin: 0 auto 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .technology-name,
+  .project-title {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: var(--text-color);
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .technologies-section .tech-grid,
+.projects-section .projects-grid {
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+/* Accessibility and Touch Improvements */
+@media (hover: none) and (pointer: coarse) {
+  .technology-item,
+  .project-card {
+    transform: none;
+  }
+
+  .technology-item:active,
+  .project-card:active {
+    transform: scale(0.95);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Tech Stack Marquee Animation */
+.tech-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-marquee {
+  display: flex;
+  width: 200%;
+  position: relative;
+}
+
+.tech-marquee-content {
+  display: flex;
+  width: 100%;
+  animation: marquee 20s linear infinite;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.tech-marquee-container:hover .tech-marquee-content {
+  animation-play-state: running;
+}
+
+.tech-marquee-content:hover {
+  animation-duration: 5s !important;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: scale(1.1);
+}
+
+.tech-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+
+/* React */
+.tech-card:nth-child(1) .tech-icon { color: var(--react-color); }
+/* Next.js */
+.tech-card:nth-child(2) .tech-icon { color: var(--nextjs-color); }
+/* Node.js */
+.tech-card:nth-child(3) .tech-icon { color: var(--nodejs-color); }
+/* TypeScript */
+.tech-card:nth-child(4) .tech-icon { color: var(--typescript-color); }
+/* JavaScript */
+.tech-card:nth-child(5) .tech-icon { color: var(--javascript-color); }
+/* Python */
+.tech-card:nth-child(6) .tech-icon { color: var(--python-color); }
+/* Django */
+.tech-card:nth-child(7) .tech-icon { color: var(--django-color); }
+/* Flask */
+.tech-card:nth-child(8) .tech-icon { color: var(--flask-color); }
+/* Java */
+.tech-card:nth-child(9) .tech-icon { color: var(--java-color); }
+/* Docker */
+.tech-card:nth-child(10) .tech-icon { color: var(--docker-color); }
+/* AWS */
+.tech-card:nth-child(11) .tech-icon { color: var(--aws-color); }
+/* PostgreSQL */
+.tech-card:nth-child(12) .tech-icon { color: var(--postgresql-color); }
+/* MongoDB */
+.tech-card:nth-child(13) .tech-icon { color: var(--mongodb-color); }
+/* OpenAI */
+.tech-card:nth-child(14) .tech-icon { color: var(--openai-color); }
+/* PyTorch */
+.tech-card:nth-child(15) .tech-icon { color: var(--pytorch-color); }
+/* Data Structures */
+.tech-card:nth-child(16) .tech-icon { color: var(--datastructures-color); }
+/* Git */
+.tech-card:nth-child(17) .tech-icon { color: var(--git-color); }
+/* Linux */
+.tech-card:nth-child(18) .tech-icon { color: var(--linux-color); }
+/* HTML5 */
+.tech-card:nth-child(19) .tech-icon { color: var(--html5-color); }
+/* CSS3 */
+.tech-card:nth-child(20) .tech-icon { color: var(--css3-color); }
+
+.tech-card:hover .tech-icon {
 }

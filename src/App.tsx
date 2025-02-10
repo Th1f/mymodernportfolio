@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 import './App.css'
 import { 
-  FaReact, 
-  FaNodeJs, 
-  FaPython, 
-  FaDocker, 
-  FaAws,
-  FaJava,
-  FaGit,
-  FaLinux,
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaGithub,
-  FaLinkedin
-} from 'react-icons/fa';
+  ReactOriginal as ReactIcon, 
+  NodejsOriginal   as NodejsIcon, 
+  PythonOriginal  as PythonIcon, 
+  DockerPlain  as DockerIcon, 
+  AmazonwebservicesPlainWordmark   as AwsIcon,
+  JavaOriginal  as JavaIcon,
+  GitOriginal  as GitIcon,
+  LinuxOriginal  as LinuxIcon,
+  Html5Original  as Html5Icon,
+  Css3Original  as Css3Icon,
+  JavascriptOriginal  as JavascriptIcon,
+} from 'devicons-react';
 import { 
-  SiTypescript, 
-  SiPostgresql, 
-  SiMongodb,
-  SiOpenai,
-  SiPytorch,
-  SiDjango,
-  SiFlask,
-  SiNextdotjs
-} from 'react-icons/si';
-import { TbBinaryTree } from 'react-icons/tb';
+  TypescriptOriginal  as TypescriptIcon, 
+  PostgresqlOriginal  as PostgresqlIcon, 
+  MongodbOriginal  as MongodbIcon,
+  PytorchOriginal  as PytorchIcon,
+  DjangoPlain  as DjangoIcon,
+  FlaskOriginal  as FlaskIcon,
+  NextjsPlain  as NextjsIcon
+} from 'devicons-react';
 import { MdEmail } from 'react-icons/md';
+import { TbBinaryTree } from 'react-icons/tb';
+import { SiOpenai as OpenaiIcon } from 'react-icons/si';
+import { FaGithub as SocialGithubIcon } from 'react-icons/fa';
+import { FaLinkedin as SocialLinkedinIcon } from 'react-icons/fa';
 
 function App() {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -41,14 +41,25 @@ function App() {
     setIsNavVisible(mouseY <= 100 || !!isInHeroSection);
   };
 
+  // Add smooth scroll function
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const socialLinks = [
     { 
-      icon: <FaGithub />, 
+      icon: <SocialGithubIcon />, 
       link: "https://github.com/Th1f",
       name: "GitHub"
     },
     { 
-      icon: <FaLinkedin />, 
+      icon: <SocialLinkedinIcon />, 
       link: "https://linkedin.com/in/yourusername",
       name: "LinkedIn"
     },
@@ -61,35 +72,123 @@ function App() {
 
   const projects = [
     {
-      name: "AI-Powered Portfolio Analyzer",
+      name: "Irvin LLM-Bot",
       technologies: [
-        { icon: <SiOpenai />, name: "OpenAI" },
-        { icon: <SiNextdotjs />, name: "Next.js" },
-        { icon: <SiTypescript />, name: "TypeScript" }
+        { icon: <OpenaiIcon />, name: "OpenAI" },
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <TypescriptIcon size={45} />, name: "TypeScript" },
+        { icon: <AwsIcon size={45} />, name: 'AWS' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
       ],
-      codeLink: "https://github.com/Th1f/project1",
-      liveLink: "https://project1-demo.vercel.app"
+      codeLink: "https://github.com/Th1f/head-port",
+      liveLink: "https://main.dx8q38lkx5ksh.amplifyapp.com"
     },
     {
-      name: "Machine Learning Trading Bot",
+      name: "Farm Search Engine",
       technologies: [
-        { icon: <SiPytorch />, name: "PyTorch" },
-        { icon: <FaPython />, name: "Python" },
-        { icon: <SiDjango />, name: "Django" }
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <NodejsIcon size={45} />, name: 'Node.js' },
+        { icon: <AwsIcon size={45} />, name: "AWS" },
+        { icon: <GitIcon size={45} />, name: 'Git' }
       ],
-      codeLink: "https://github.com/Th1f/project2",
+      codeLink: "https://github.com/Th1f/fullstack-farm-search",
       liveLink: "https://project2-demo.herokuapp.com"
     },
     {
-      name: "Distributed Microservices Platform",
+      name: "Youtube MP3 and MP4 Downloader",
       technologies: [
-        { icon: <FaDocker />, name: "Docker" },
-        { icon: <FaAws />, name: "AWS" },
-        { icon: <FaNodeJs />, name: "Node.js" }
+        { icon: <DockerIcon size={45} />, name: "Docker" },
+        { icon: <PythonIcon size={45} />, name: 'Python' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
       ],
-      codeLink: "https://github.com/Th1f/project3",
+      codeLink: "https://github.com/Th1f/Youtube-Downloader-mp3-mp4",
       liveLink: "https://project3-demo.cloud"
-    }
+    },
+    {
+      name: "Irvin LLM-Bot",
+      technologies: [
+        { icon: <OpenaiIcon />, name: "OpenAI" },
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <TypescriptIcon size={45} />, name: "TypeScript" },
+        { icon: <AwsIcon size={45} />, name: 'AWS' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
+      ],
+      codeLink: "https://github.com/Th1f/head-port",
+      liveLink: "https://main.dx8q38lkx5ksh.amplifyapp.com"
+    },
+    {
+      name: "Irvin LLM-Bot",
+      technologies: [
+        { icon: <OpenaiIcon />, name: "OpenAI" },
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <TypescriptIcon size={45} />, name: "TypeScript" },
+        { icon: <AwsIcon size={45} />, name: 'AWS' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
+      ],
+      codeLink: "https://github.com/Th1f/head-port",
+      liveLink: "https://main.dx8q38lkx5ksh.amplifyapp.com"
+    },
+    {
+      name: "Irvin LLM-Bot",
+      technologies: [
+        { icon: <OpenaiIcon />, name: "OpenAI" },
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <TypescriptIcon size={45} />, name: "TypeScript" },
+        { icon: <AwsIcon size={45} />, name: 'AWS' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
+      ],
+      codeLink: "https://github.com/Th1f/head-port",
+      liveLink: "https://main.dx8q38lkx5ksh.amplifyapp.com"
+    },
+    {
+      name: "Irvin LLM-Bot",
+      technologies: [
+        { icon: <OpenaiIcon />, name: "OpenAI" },
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <TypescriptIcon size={45} />, name: "TypeScript" },
+        { icon: <AwsIcon size={45} />, name: 'AWS' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
+      ],
+      codeLink: "https://github.com/Th1f/head-port",
+      liveLink: "https://main.dx8q38lkx5ksh.amplifyapp.com"
+    },
+    {
+      name: "Irvin LLM-Bot",
+      technologies: [
+        { icon: <OpenaiIcon />, name: "OpenAI" },
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <TypescriptIcon size={45} />, name: "TypeScript" },
+        { icon: <AwsIcon size={45} />, name: 'AWS' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
+      ],
+      codeLink: "https://github.com/Th1f/head-port",
+      liveLink: "https://main.dx8q38lkx5ksh.amplifyapp.com"
+    },
+    {
+      name: "Irvin LLM-Bot",
+      technologies: [
+        { icon: <OpenaiIcon />, name: "OpenAI" },
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <TypescriptIcon size={45} />, name: "TypeScript" },
+        { icon: <AwsIcon size={45} />, name: 'AWS' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
+      ],
+      codeLink: "https://github.com/Th1f/head-port",
+      liveLink: "https://main.dx8q38lkx5ksh.amplifyapp.com"
+    },
+    {
+      name: "Irvin LLM-Bot",
+      technologies: [
+        { icon: <OpenaiIcon />, name: "OpenAI" },
+        { icon: <ReactIcon size={45} />, name: 'React' },
+        { icon: <TypescriptIcon size={45} />, name: "TypeScript" },
+        { icon: <AwsIcon size={45} />, name: 'AWS' },
+        { icon: <GitIcon size={45} />, name: 'Git' }
+      ],
+      codeLink: "https://github.com/Th1f/head-port",
+      liveLink: "https://main.dx8q38lkx5ksh.amplifyapp.com"
+    },
+    
   ];
 
   return (
@@ -99,9 +198,9 @@ function App() {
     >
       <nav className={`sleek-nav ${isNavVisible ? 'visible' : 'hidden'}`}>
         <div className="nav-links">
-          <a href="#technologies">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a onClick={() => scrollToSection('technologies')}>Tech</a>
+          <a onClick={() => scrollToSection('projects')}>Projects</a>
+          <a onClick={() => scrollToSection('contact')}>Contact</a>
         </div>
       </nav>
       <section id="hero" className="hero-section">
@@ -132,29 +231,28 @@ function App() {
       </section>
 
       <section id="technologies" className="technologies-section">
-        <h2>Technologies</h2>
+        <h2>Tech Stack</h2>
         <div className="tech-grid">
           {[
-            { icon: <FaReact />, name: 'React' },
-            { icon: <SiNextdotjs />, name: 'Next.js' },
-            { icon: <FaNodeJs />, name: 'Node.js' },
-            { icon: <SiTypescript />, name: 'TypeScript' },
-            { icon: <FaJs />, name: 'JavaScript' },
-            { icon: <FaPython />, name: 'Python' },
-            { icon: <SiDjango />, name: 'Django' },
-            { icon: <SiFlask />, name: 'Flask' },
-            { icon: <FaJava />, name: 'Java' },
-            { icon: <FaDocker />, name: 'Docker' },
-            { icon: <FaAws />, name: 'AWS' },
-            { icon: <SiPostgresql />, name: 'PostgreSQL' },
-            { icon: <SiMongodb />, name: 'MongoDB' },
-            { icon: <SiOpenai />, name: 'OpenAI' },
-            { icon: <SiPytorch />, name: 'PyTorch' },
+            { icon: <ReactIcon size={45} />, name: 'React' },
+            { icon: <NextjsIcon size={45} />, name: 'Next.js' },
+            { icon: <NodejsIcon size={45} />, name: 'Node.js' },
+            { icon: <TypescriptIcon size={45} />, name: 'TypeScript' },
+            { icon: <JavascriptIcon size={45} />, name: 'JavaScript' },
+            { icon: <PythonIcon size={45} />, name: 'Python' },
+            { icon: <DjangoIcon size={45} />, name: 'Django' },
+            { icon: <FlaskIcon size={45} />, name: 'Flask' },
+            { icon: <JavaIcon size={45} />, name: 'Java' },
+            { icon: <DockerIcon size={45} />, name: 'Docker' },
+            { icon: <AwsIcon size={45} />, name: 'AWS' },
+            { icon: <PostgresqlIcon size={45} />, name: 'PostgreSQL' },
+            { icon: <MongodbIcon size={45} />, name: 'MongoDB' },
+            { icon: <PytorchIcon size={45} />, name: 'PyTorch' },
             { icon: <TbBinaryTree />, name: 'Data Structures' },
-            { icon: <FaGit />, name: 'Git' },
-            { icon: <FaLinux />, name: 'Linux' },
-            { icon: <FaHtml5 />, name: 'HTML5' },
-            { icon: <FaCss3 />, name: 'CSS3' }
+            { icon: <GitIcon size={45} />, name: 'Git' },
+            { icon: <LinuxIcon size={45} />, name: 'Linux' },
+            { icon: <Html5Icon size={45} />, name: 'HTML5' },
+            { icon: <Css3Icon size={45} />, name: 'CSS3' }
           ].map((tech, index) => (
             <div key={index} className="tech-card">
               <div className="tech-icon">{tech.icon}</div>

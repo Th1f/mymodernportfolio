@@ -13,15 +13,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.7",
     "@tailwindcss/vite": "^4.0.4",
     "clsx": "^2.1.1",
     "cursor-flashlight": "^1.0.1",
+    "devicons-react": "^1.4.0",
     "framer-motion": "^12.4.1",
     "leumas-react-flashlights": "^1.0.4",
     "particlesjs": "^2.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0",
+    "react-icons": "^4.12.0",
     "tailwind-merge": "^3.0.1",
     "tailwindcss": "^4.0.4"
   },
